@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { version } from 'react';
 import ReactDOM from 'react-dom';
 import '@glue42/launchpad-ui-react/dist/vnext.css';
 import reportWebVitals from './reportWebVitals';
 import Glue from '@glue42/desktop';
 import { Glue42ReactFactory, GlueProvider } from '@glue42/react-hooks';
-
 import { LaunchPad, GlobalSearch } from '@glue42/launchpad-ui-react';
+import { BrowserRouter, Route } from "react-router-dom";
+import { version as lpVersion } from "@glue42/launchpad-ui-react/package.json";
+
+console.log(`@glue42/launchpad-ui-react@${lpVersion}`);
 
 ReactDOM.render(
   <GlueProvider config={{ appManager: 'full', layouts: 'full' }} glueFactory={Glue as unknown as Glue42ReactFactory}>

@@ -4,8 +4,10 @@ import '@glue42/launchpad-ui-react/dist/vnext.css';
 import reportWebVitals from './reportWebVitals';
 import Glue from '@glue42/desktop';
 import { Glue42ReactFactory, GlueProvider } from '@glue42/react-hooks';
-
 import { GlobalSearch } from '@glue42/launchpad-ui-react';
+import { version as LaunchPadVersion } from '@glue42/launchpad-ui-react/package.json';
+
+console.log(`@glue42/launchpad-ui-react@${LaunchPadVersion}`);
 
 ReactDOM.render(
   <GlueProvider config={{ appManager: 'full', layouts: 'full' }} glueFactory={Glue as unknown as Glue42ReactFactory}>
