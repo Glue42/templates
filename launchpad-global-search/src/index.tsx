@@ -11,7 +11,12 @@ import { version as lpVersion } from "@glue42/launchpad-ui-react/package.json";
 console.log(`@glue42/launchpad-ui-react@${lpVersion}`);
 
 ReactDOM.render(
-  <GlueProvider config={{ appManager: 'full', layouts: 'full' }} glueFactory={Glue as unknown as Glue42ReactFactory}>
+  <GlueProvider settings={{
+    desktop: {
+      config: { appManager: 'full', layouts: 'full' },
+      factory: (config: any) => Glue(config) as any
+    },
+  }}>
     <BrowserRouter>
       <Route exact path="/launchpad" component={LaunchPad} />
       <Route path="/global-search" component={GlobalSearch} />
