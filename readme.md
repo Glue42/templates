@@ -1,34 +1,23 @@
 # Glue42 Templates
 
-# Modifying Launchpad Application
-If you want to build a modified version of a launchpad application copy the templates/launchpad folder and do your modifications there. 
-The way to modify the launchpad is by passing custom components
+This repo provides templates which can be used starting points for modifying various Glue42 applications.
 
-For example, let insert a custom logo that will be displayed in the upper right corner of LaunchPad:
+## Glue42 Global Search
 
-```jsx
-const myLogoComponent = () => {...}
+A template for the Glue42 Global Search application. For more details, see the template [README](./global-search/README.md) file and the `@glue42/launchpad-ui-react` package [documentation](https://www.npmjs.com/package/@glue42/launchpad-ui-react).
 
-<LaunchPad 
-    components={{
-        logo: myLogoComponent
-    }}
-/>
-```
+## Glue42 Launchpad & Global Search
 
-See the launchpad component readme file for full list of replaceable components.
+A template for the Glue42 Launchpad and Global Search applications. For more details, see the template [README](./launchpad-global-search/README.md) file and the `@glue42/launchpad-ui-react` package [documentation](https://www.npmjs.com/package/@glue42/launchpad-ui-react).
 
-# Modifying Global Search Application
-If you want to build a modified version of the global search application copy the templates/global-search folder and do your modifications there. The way to modify the launchpad library is by passing custom components.
+## Glue42 Launchpad
 
-The ```<GlobalSearch />``` component uses the  [render prop react pattern](https://reactjs.org/docs/render-props.html) to let you insert a custom component in the place where the search results are returned. You can do this in the following way:
+A template for the Glue42 Launchpad application. For more details, see the template [README](./launchpad/README.md) file and the `@glue42/launchpad-ui-react` package [documentation](https://www.npmjs.com/package/@glue42/launchpad-ui-react).
 
-```jsx
-const MyCustomGlobalSearchItem = props => {...}
+## Glue42 Workspace in React with Pinned Tabs
 
-<GlobalSearch 
-    components={{
-        renderGlobalSearchItem: MyCustomGlobalSearchItem
-    }}
-/>
-```
+A template for a Glue42 Workspace App with pinned tabs. For more details, see the template [README](./workspaces-react-pinned-tabs/README.md) file.
+
+## Glue42 Workspaces in React
+
+A template for a Glue42 Workspace App. For more details, see the template [README](./workspaces-react/README.md) file.
