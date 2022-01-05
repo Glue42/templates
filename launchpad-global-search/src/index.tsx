@@ -1,11 +1,10 @@
-import React, { version } from 'react';
 import ReactDOM from 'react-dom';
 import '@glue42/launchpad-ui-react/dist/vnext.css';
 import reportWebVitals from './reportWebVitals';
 import Glue from '@glue42/desktop';
-import { Glue42ReactFactory, GlueProvider } from '@glue42/react-hooks';
+import { GlueProvider } from '@glue42/react-hooks';
 import { LaunchPad, GlobalSearch } from '@glue42/launchpad-ui-react';
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { version as lpVersion } from "@glue42/launchpad-ui-react/package.json";
 
 console.log(`@glue42/launchpad-ui-react@${lpVersion}`);
@@ -18,8 +17,10 @@ ReactDOM.render(
     },
   }}>
     <BrowserRouter>
-      <Route exact path="/launchpad" component={LaunchPad} />
-      <Route path="/global-search" component={GlobalSearch} />
+    <Routes>
+      <Route path="/launchpad" element={<LaunchPad/>} />
+      <Route path="/global-search" element={<GlobalSearch placeholder='Glue42 Global Search...'/>} />
+    </Routes>
     </BrowserRouter>
   </GlueProvider>,
   document.getElementById('root')
