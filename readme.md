@@ -21,3 +21,7 @@ A template for a Glue42 Workspace App with pinned tabs. For more details, see th
 ## Glue42 Workspaces in React
 
 A template for a Glue42 Workspace App. For more details, see the template [README](./workspaces-react/README.md) file.
+
+## Glue42 Groups in React
+
+A template for a Glue42 Web Group App. For more details, see the template [README](./groups-react/README.md) file.
