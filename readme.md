@@ -24,4 +24,4 @@ A template for a Glue42 Workspace App. For more details, see the template [READM
 
 ## Glue42 Groups in React
 
-A template for a Glue42 Web Group App. For more details, see the template [README](./workspaces-react/README.md) file.
+A template for a Glue42 Web Group App. For more details, see the template [README](./groups-react/README.md) file.
