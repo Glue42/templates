@@ -1,5 +1,5 @@
 {
-  "name": "launchpad",
+  "name": "@glue42/launchpad-global-search-template",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
