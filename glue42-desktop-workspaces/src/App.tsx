@@ -18,9 +18,12 @@ const App = () => {
     useEffect(() => {
         const shortcuts: { [id: string]: UnsubscribeFunction } = {};
         
-        const registerKeyToFocusWS = async (frame: Glue42Workspaces.Frame, workspace: Glue42Workspaces.Workspace) => {
-            const frames = await frame?.workspaces();
-            const index = frames.length;
+        const registerKeyToFocusWS = async (frame: Glue42Workspaces.Frame, workspace: Glue42Workspaces.Workspace, index: number) => {
+            if (index >= 9) {
+                // we don't need to register
+                return;
+            }
+           
             const key = `ctrl+${index}`;
             const un = await frame?.registerShortcut(key, () => {
                 workspace.focus();
@@ -59,25 +62,32 @@ const App = () => {
             });
         };
 
+        const registerKeys = async (frame: Glue42Workspaces.Frame) => {
+             const workspaces = await frame?.workspaces();
+                workspaces.forEach((workspace, index) => {
+                    registerKeyToFocusWS(frame, workspace, index + 1);
+                });
+        }
+
         const glueTyped = (window as any).glue as Glue42.Glue;
         glueTyped?.workspaces?.waitForFrame(getFrameId())
             .then(async (frame) => {
                 registerKeyToOpenLastWS(frame);
                 registerKeyToSwitchNextWS(frame);
                 registerKeyToCloseFocusedWS(frame);
+                registerKeys(frame);
 
-                const workspaces = await frame?.workspaces();
-                workspaces.forEach((workspace) => {
-                    registerKeyToFocusWS(frame, workspace);
-                });
                 frame?.onWorkspaceOpened(async (workspace) => {
-                    registerKeyToFocusWS(frame, workspace);
+                    const workspaces = await frame?.workspaces();
+                    registerKeyToFocusWS(frame, workspace, workspaces.length);
                 });
-                frame?.onWorkspaceClosed(({workspaceId}) => {
-                    const un = shortcuts[workspaceId];
-                    if (typeof un === "function") {
-                        un();
-                    }
+                frame?.onWorkspaceClosed(() => {
+                    Object.values(shortcuts).forEach((un) => {
+                        if (typeof un === "function") {
+                            un();
+                        }
+                    });
+                    registerKeys(frame);
                 });
             })
         return () => {
