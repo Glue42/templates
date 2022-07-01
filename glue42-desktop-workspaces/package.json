@@ -4,10 +4,10 @@
   "private": true,
   "homepage": "./",
   "dependencies": {
-    "@glue42/desktop": "^5.12.0",
-    "@glue42/react-hooks": "^2.0.0",
-    "@glue42/workspaces-api": "^1.15.0",
-    "@glue42/workspaces-ui-react": "^1.8.6",
+    "@glue42/desktop": "^5.12.1",
+    "@glue42/react-hooks": "^2.6.10",
+    "@glue42/workspaces-api": "^1.15.1",
+    "@glue42/workspaces-ui-react": "^1.8.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
@@ -42,8 +42,8 @@
     "@types/node": "^12.19.3",
     "@types/react": "^16.9.56",
     "@types/react-dom": "^16.9.9",
-    "react-scripts": "4.0.1",
-    "typescript": "^4.0.5",
+    "react-scripts": "^5.0.1",
+    "typescript": "^4.7.4",
     "web-vitals": "^0.2.4"
   }
 }

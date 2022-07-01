@@ -26,14 +26,14 @@ const App = () => {
                 workspace.focus();
             })
             shortcuts[workspace.id] = un;
-        }
+        };
 
         const registerKeyToOpenLastWS = (frame: Glue42Workspaces.Frame) => {
             frame.registerShortcut("ctrl+9", async () => {
                 const ws = await frame.workspaces();
                 ws[ws.length - 1]?.focus();
             });
-        }
+        };
 
         const registerKeyToSwitchNextWS = (frame: Glue42Workspaces.Frame) => {
             frame.registerShortcut("ctrl+tab", async () => {
@@ -49,7 +49,7 @@ const App = () => {
                     forSelecting?.focus();
                 }
             });
-        }
+        };
 
         const registerKeyToCloseFocusedWS = (frame: Glue42Workspaces.Frame) => {
             frame.registerShortcut("ctrl+f4", async () => {
@@ -57,7 +57,7 @@ const App = () => {
                 const selected = ws.find((ws) => ws.isSelected);
                 selected?.close();
             });
-        }
+        };
 
         const glueTyped = (window as any).glue as Glue42.Glue;
         glueTyped?.workspaces?.waitForFrame(getFrameId())
@@ -69,16 +69,16 @@ const App = () => {
                 const workspaces = await frame?.workspaces();
                 workspaces.forEach((workspace) => {
                     registerKeyToFocusWS(frame, workspace);
-                })
+                });
                 frame?.onWorkspaceOpened(async (workspace) => {
                     registerKeyToFocusWS(frame, workspace);
-                })
-                // frame?.onWorkspaceClosed(({workspaceId}) => {
-                //     const un = shortcuts[workspaceId];
-                //     if (typeof un === "function") {
-                //         un();
-                //     }
-                // })
+                });
+                frame?.onWorkspaceClosed(({workspaceId}) => {
+                    const un = shortcuts[workspaceId];
+                    if (typeof un === "function") {
+                        un();
+                    }
+                });
             })
         return () => {
             Object.values(shortcuts).forEach((un)=> un());
@@ -86,13 +86,7 @@ const App = () => {
     }, []);
   
     return (
-        <Workspaces components={{
-            header: {
-                LogoComponent: (props) => {
-                    return <div>My Icon</div>
-                }
-            }
-        }} />
+        <Workspaces/>
     );
 }
 
