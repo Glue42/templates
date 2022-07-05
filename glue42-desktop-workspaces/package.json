@@ -6,7 +6,7 @@
   "dependencies": {
     "@glue42/desktop": "^5.12.1",
     "@glue42/react-hooks": "^2.6.10",
-    "@glue42/workspaces-api": "^1.15.1",
+    "@glue42/workspaces-api": "^1.15.2",
     "@glue42/workspaces-ui-react": "^1.8.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
