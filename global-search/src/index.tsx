@@ -5,9 +5,9 @@ import reportWebVitals from './reportWebVitals';
 import Glue from '@glue42/desktop';
 import { Glue42ReactFactory, GlueProvider } from '@glue42/react-hooks';
 import { GlobalSearch } from '@glue42/launchpad-ui-react';
-import { version as LaunchPadVersion } from '@glue42/launchpad-ui-react/package.json';
+import packageInfo from '@glue42/launchpad-ui-react/package.json';
 
-console.log(`@glue42/launchpad-ui-react@${LaunchPadVersion}`);
+console.log(`@glue42/launchpad-ui-react@${packageInfo.version}`);
 
 ReactDOM.render(
   <GlueProvider settings={{
