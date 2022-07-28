@@ -2,9 +2,10 @@
   "name": "groups-react",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
     "@glue42/desktop": "^5.10.2",
-    "@glue42/groups-ui-react": "^1.0.1",
+    "@glue42/groups-ui-react": "^1.1.1",
     "@glue42/react-hooks": "^2.6.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
